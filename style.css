@@ -1,0 +1,39 @@
+.home-filter-container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(110, 13, 37, 0.08);
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.home-filter-container select,
+.home-filter-container input,
+.home-filter-container button {
+  padding: 10px 14px;
+  font-size: 14px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
+.home-filter-container select:focus,
+.home-filter-container input:focus,
+.home-filter-container button:focus {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px var(--ring);
+}
+
+.home-filter-container button {
+  background: var(--brand);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.home-filter-container button:hover {
+  background: var(--brand-2);
+}
