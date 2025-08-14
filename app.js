@@ -1,8 +1,20 @@
-const params = new URLSearchParams(window.location.search);
+const minSlider = document.getElementById('minPrice');
+const maxSlider = document.getElementById('maxPrice');
+const minPriceValue = document.getElementById('minPriceValue');
+const maxPriceValue = document.getElementById('maxPriceValue');
 
-if (params.get('city')) document.querySelector('#city').value = params.get('city');
-if (params.get('ptype')) document.querySelector('#ptype').value = params.get('ptype');
-if (params.get('minPrice')) document.querySelector('#minPrice').value = params.get('minPrice');
-if (params.get('maxPrice')) document.querySelector('#maxPrice').value = params.get('maxPrice');
+function formatPrice(value) {
+  if (value >= 10000000) return '₹' + (value / 10000000).toFixed(1) + ' Cr';
+  if (value >= 100000) return '₹' + (value / 100000).toFixed(1) + ' L';
+  return '₹' + value.toLocaleString();
+}
 
-apply();
+function updatePriceValues() {
+  minPriceValue.textContent = formatPrice(parseInt(minSlider.value));
+  maxPriceValue.textContent = formatPrice(parseInt(maxSlider.value));
+}
+
+minSlider.addEventListener('input', updatePriceValues);
+maxSlider.addEventListener('input', updatePriceValues);
+
+updatePriceValues();

@@ -1,5 +1,7 @@
 <div class="home-filter-container">
   <form action="listings.html" method="get">
+
+    <!-- City -->
     <select name="city" required>
       <option value="">Select City</option>
       <option value="Chennai">Chennai</option>
@@ -7,6 +9,7 @@
       <option value="Madurai">Madurai</option>
     </select>
 
+    <!-- Property Type -->
     <select name="ptype">
       <option value="">Property Type</option>
       <option value="apartment">Apartment</option>
@@ -14,10 +17,19 @@
       <option value="plot">Plot</option>
     </select>
 
-    <!-- Price Range Fields -->
-    <input type="number" name="minPrice" placeholder="Min Price" min="0" step="50000">
-    <input type="number" name="maxPrice" placeholder="Max Price" min="0" step="50000">
+    <!-- Price Slider -->
+    <div class="price-range">
+      <label>Budget</label>
+      <div class="slider-container">
+        <input type="range" id="minPrice" name="minPrice" min="0" max="100000000" step="50000" value="0">
+        <input type="range" id="maxPrice" name="maxPrice" min="0" max="100000000" step="50000" value="100000000">
+      </div>
+      <div class="price-values">
+        <span id="minPriceValue">₹0</span> - <span id="maxPriceValue">₹10 Cr+</span>
+      </div>
+    </div>
 
+    <!-- Submit -->
     <button type="submit">Search</button>
   </form>
 </div>
