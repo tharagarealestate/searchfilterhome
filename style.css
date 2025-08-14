@@ -1,80 +1,77 @@
-:root {
-  --brand: #6e0d25;
-  --brand-2: #8c1630;
-  --cream: #f7efe7;
-}
-
-.tharaga-search-container {
-  background: var(--cream);
-  padding: 20px;
-  border-radius: 18px;
-  box-shadow: 0 8px 32px rgba(110, 13, 37, 0.08);
-  max-width: 800px;
-  margin: auto;
-}
-
-.search-tabs {
+.search-widget {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   gap: 12px;
-  margin-bottom: 12px;
-}
-
-.tab {
-  background: none;
-  border: none;
-  font-size: 14px;
-  padding: 8px 16px;
-  cursor: pointer;
-  color: var(--brand);
-  border-bottom: 2px solid transparent;
-  transition: all 0.2s ease;
-}
-
-.tab.active {
-  border-bottom: 2px solid var(--brand);
-  font-weight: bold;
-}
-
-.search-bar {
-  display: flex;
   background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(110,13,37,0.08);
+  max-width: 900px;
+  margin: 40px auto;
 }
 
-.input {
+.location-group {
+  display: flex;
+  gap: 8px;
+  flex: 2;
+}
+
+/* Input Styling */
+.search-widget .input {
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
   flex: 1;
-  padding: 10px 14px;
-  border: none;
-  font-size: 14px;
 }
 
+/* Button */
 .search-btn {
-  background: var(--brand);
+  background: #6e0d25;
   color: #fff;
-  padding: 0 18px;
-  border: none;
+  padding: 10px 20px;
   font-size: 14px;
+  border-radius: 10px;
+  border: none;
   cursor: pointer;
-  transition: background 0.2s ease;
 }
 
 .search-btn:hover {
-  background: var(--brand-2);
+  background: #8c1630;
 }
 
-.price-range {
-  margin-top: 12px;
+/* Price slider styling */
+.price-range-brief {
+  flex: 2;
 }
 
-.slider-container {
-  display: flex;
-  gap: 6px;
+.price-slider {
+  position: relative;
+  height: 32px;
 }
 
-.price-values {
-  font-size: 12px;
+.price-slider input[type="range"] {
+  position: absolute;
+  width: 100%;
+  background: none;
+  pointer-events: none;
+}
+
+.price-slider input[type="range"]::-webkit-slider-thumb,
+.price-slider input[type="range"]::-moz-range-thumb {
+  pointer-events: auto;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #6e0d25;
+  border: 3px solid #fff;
+  cursor: pointer;
+}
+
+/* Optional: style labels */
+.price-labels {
+  margin-top: 6px;
+  font-size: 13px;
   color: #555;
-  margin-top: 4px;
 }

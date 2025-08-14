@@ -1,20 +1,19 @@
-const minSlider = document.getElementById('minPrice');
-const maxSlider = document.getElementById('maxPrice');
-const minPriceValue = document.getElementById('minPriceValue');
-const maxPriceValue = document.getElementById('maxPriceValue');
+const minSlide = document.getElementById("homeMinPrice");
+const maxSlide = document.getElementById("homeMaxPrice");
+const minLabel = document.getElementById("homeMinLabel");
+const maxLabel = document.getElementById("homeMaxLabel");
 
-function formatPrice(value) {
-  if (value >= 10000000) return '₹' + (value / 10000000).toFixed(1) + ' Cr';
-  if (value >= 100000) return '₹' + (value / 100000).toFixed(1) + ' L';
-  return '₹' + value.toLocaleString();
+function formatINR(val) {
+  if (val >= 10000000) return '₹' + (val/10000000).toFixed(1) + ' Cr';
+  if (val >= 100000) return '₹' + (val/100000).toFixed(0) + ' L';
+  return '₹' + val.toLocaleString();
 }
 
-function updatePriceValues() {
-  minPriceValue.textContent = formatPrice(parseInt(minSlider.value));
-  maxPriceValue.textContent = formatPrice(parseInt(maxSlider.value));
-}
+[minSlide, maxSlide].forEach(slider => {
+  slider.addEventListener("input", () => {
+    minLabel.innerText = formatINR(parseInt(minSlide.value));
+    maxLabel.innerText = formatINR(parseInt(maxSlide.value));
+  });
+});
 
-minSlider.addEventListener('input', updatePriceValues);
-maxSlider.addEventListener('input', updatePriceValues);
-
-updatePriceValues();
+[minSlide, maxSlide].forEach(slider => slider.dispatchEvent(new Event("input")));
