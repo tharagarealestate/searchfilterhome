@@ -1,26 +1,71 @@
-.home-filter-container {
-  background: #fff;
-  padding: 20px;
-  border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(110, 13, 37, 0.08);
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
+:root {
+  --brand: #6e0d25;
+  --brand-2: #8c1630;
+  --cream: #f7efe7;
 }
 
-.home-filter-container select,
-.home-filter-container button {
-  padding: 10px 14px;
+.tharaga-search-container {
+  background: var(--cream);
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(110, 13, 37, 0.08);
+  max-width: 800px;
+  margin: auto;
+}
+
+.search-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.tab {
+  background: none;
+  border: none;
   font-size: 14px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
+  padding: 8px 16px;
+  cursor: pointer;
+  color: var(--brand);
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.tab.active {
+  border-bottom: 2px solid var(--brand);
+  font-weight: bold;
+}
+
+.search-bar {
+  display: flex;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
+.input {
+  flex: 1;
+  padding: 10px 14px;
+  border: none;
+  font-size: 14px;
+}
+
+.search-btn {
+  background: var(--brand);
+  color: #fff;
+  padding: 0 18px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.search-btn:hover {
+  background: var(--brand-2);
 }
 
 .price-range {
-  display: flex;
-  flex-direction: column;
-  min-width: 200px;
+  margin-top: 12px;
 }
 
 .slider-container {
@@ -28,24 +73,8 @@
   gap: 6px;
 }
 
-input[type="range"] {
-  flex: 1;
-}
-
 .price-values {
   font-size: 12px;
-  margin-top: 4px;
   color: #555;
-}
-
-button {
-  background: var(--brand);
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-button:hover {
-  background: var(--brand-2);
+  margin-top: 4px;
 }
