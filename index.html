@@ -1,25 +1,22 @@
-<!-- Tharaga Home Search -->
 <section class="home-search-container">
-  <div class="home-search-row" role="search">
-    <!-- City -->
-    <select id="homeCity" class="input home-seg home-seg--left" aria-label="Select city">
+  <div class="home-search-row">
+    
+    <!-- City Select -->
+    <select id="city" class="input home-seg home-seg--left">
       <option value="">Select City</option>
-      <option value="Chennai">Chennai</option>
-      <option value="Madurai">Madurai</option>
-      <option value="Coimbatore">Coimbatore</option>
+      <option value="chennai">Chennai</option>
+      <option value="madurai">Madurai</option>
+      <option value="coimbatore">Coimbatore</option>
     </select>
 
-    <!-- Search -->
-    <div class="home-input-wrap home-seg">
-      <svg class="home-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-        <path fill="currentColor" d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.71.71l.27.28v.79L20 21.49 21.49 20 15.5 14Zm-6 0a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9Z"/>
-      </svg>
-      <input id="homeQ" class="input home-input" placeholder="Search upto 3 localities or landmarks…" />
+    <!-- Search Input -->
+    <div class="home-input-wrap">
+      <span class="home-icon">🔍</span>
+      <input id="q" class="input home-input home-seg" placeholder="Search by locality, project, landmark…">
     </div>
 
-    <!-- Button -->
-    <button id="homeSearchBtn" class="btn home-seg home-seg--right" aria-label="Search">
-      Search
-    </button>
+    <!-- Search Button -->
+    <button class="btn home-seg home-seg--right">Search</button>
+
   </div>
 </section>
