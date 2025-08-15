@@ -1,26 +1,58 @@
-/* Keep your existing .filter-container styles from styles.css */
-.top-row.no-gap {
-  display: flex;
-  gap: 0; /* no gap between dropdown, search bar, and button */
+/* --- Home search container (Tharaga style) --- */
+.home-search-container{
+  max-width: 900px;
+  margin: 12px auto 8px;                 /* compact top margin */
+  background: linear-gradient(180deg,#fff,#fdf9f7);
+  border: 1px solid #f0d9d9;
+  border-radius: 16px;
+  padding: 10px;
+  box-shadow: 0 4px 24px rgba(110,13,37,.16);     /* your shadow */
+  transition: transform .2s ease, box-shadow .2s ease;  /* your transition */
+}
+.home-search-container:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(110,13,37,.16);
+}
+.home-search-container:focus-within{
+  box-shadow: 0 0 0 3px var(--ring), 0 16px 36px rgba(110,13,37,.16);
 }
 
-.top-row.no-gap .input {
-  border-radius: 0; /* no rounded corners in middle */
+.home-search-row{
+  display: grid;
+  grid-template-columns: 180px 1fr 118px; /* city | input | button */
+  align-items: stretch;
+  gap: 0;                                  /* flush, no gaps */
 }
 
-.top-row.no-gap select:first-child {
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-}
+/* Fuse the three pieces into one pill */
+.home-seg{ border-radius: 0; }
+.home-seg--left{ border-top-left-radius: 10px; border-bottom-left-radius: 10px; }
+.home-seg--right{ border-top-right-radius: 10px; border-bottom-right-radius: 10px; }
+.home-input{ border-left: none; }          /* seamless join with city select */
 
-.top-row.no-gap input {
-  border-left: none; /* remove inner border */
+/* Search input with icon */
+.home-input-wrap{ position: relative; }
+.home-icon{
+  position: absolute;
+  left: 12px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  pointer-events: none;
 }
+.home-input{ padding-left: 36px; }
 
-.top-row.no-gap .btn {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+/* Button polish */
+.home-search-row .btn{
+  font-weight: 700;
+  letter-spacing: .01em;
   padding: 0 20px;
-  font-weight: 600;
-  font-size: 14px;
+}
+
+/* Mobile */
+@media (max-width: 640px){
+  .home-search-row{ grid-template-columns: 1fr; gap: 8px; }
+  .home-input{ border-left: 1px solid #e5e7eb; }
+  .home-seg,
+  .home-seg--left,
+  .home-seg--right{ border-radius: 10px; }
 }
