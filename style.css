@@ -52,72 +52,70 @@ img{max-width:100%;display:block}
 
 /* === NEW FILTER BOX STYLES === */
 .filter-container {
+  max-width: 900px; /* Centered container size */
+  margin: 20px auto; /* Compact vertical spacing, centered horizontally */
   background: linear-gradient(180deg, #fff, #fdf9f7);
-  border-radius: 16px; /* 🔄 CHANGE: slightly smaller for sleekness */
-  padding: 16px; /* 🔄 CHANGE: more compact */
+  border-radius: 16px; 
+  padding: 16px; 
   border: 1px solid #f0d9d9;
-  box-shadow: 0 4px 24px rgba(110, 13, 37, 0.16); /* 🔄 CHANGE: softer shadow */
+  box-shadow: 0 4px 24px rgba(110, 13, 37, 0.16);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
 .filter-container:hover {
   transform: translateY(-2px);
   box-shadow: 0 16px 36px rgba(110, 13, 37, 0.16);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* New: Top Row for Search + Price */
+/* Top Row for City + Search */
 .top-row {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 12px;
-}
-
-.top-row .input home-search-row,
-.top-row .search-box {
-  flex: 1;
-}
-
-
-.section-heading span {
-  color: var(--muted); /* optional highlight for certain words */
-  font-weight: 500;
-}
-
-.filter-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); /* 🔄 CHANGE: slightly narrower columns */
-  gap: 8px 12px; /* smaller gap for tighter look */
-  /*-- align-items: end; */
+  grid-template-columns: 180px 1fr 118px; /* City | Search | Button */
+  gap: 0; /* flush, no gaps */
+  align-items: stretch;
 }
 
+.top-row select,
+.top-row input {
+  border-radius: 0;
+}
+
+.top-row select {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.top-row input {
+  border-left: none;
+  border-right: none;
+}
+
+.top-row .btn {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* Label styles inside grids */
 .filter-grid label {
   font-weight: 600;
-  font-size: 12px; /* 🔄 CHANGE: smaller label font */
+  font-size: 12px;
   color: var(--muted);
   display: block;
-  margin-bottom: 3px; /* 🔄 CHANGE: tighter spacing */
+  margin-bottom: 3px;
 }
 
-.filter-actions {
-  display: flex;
-  justify-content: space-between; /* 🔄 CHANGE: buttons spread apart for balance */
-  gap: 8px;
-  margin-top: 8px;
-}
-
-
+/* Multiple select height */
 select[multiple] {
-  min-height: 90px; /* 🔄 CHANGE: shorter multiple-select height */
+  min-height: 90px;
 }
 
-/* === NEW: subtle hover for selects and inputs === */
+/* Hover styles for inputs and selects */
 .input:hover, select:hover, textarea:hover {
   border-color: var(--brand);
   background: #fffafa;
-  box-shadow: 0 2px 6px rgba(110, 13, 37, 0.06); /* New subtle hover shadow */
+  box-shadow: 0 2px 6px rgba(110, 13, 37, 0.06);
 }
 
-/* === NEW: active filter chips === */
+/* Active filter chips */
 .active-filter-chip {
   background: var(--brand);
   color: white;
@@ -125,4 +123,3 @@ select[multiple] {
   border-radius: 8px;
   font-size: 12px;
 }
-
