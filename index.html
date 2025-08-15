@@ -1,35 +1,39 @@
-<div class="search-widget">
-  <!-- City & Locality -->
-  <div class="location-group">
-    <select name="city" class="input">
+<section class="homepage-filter-bar">
+  <form id="homepageFilter" action="listings.html" method="GET" class="filter-bar-inner">
+
+    <!-- City Dropdown -->
+    <select name="city" id="hpCity" class="filter-city">
       <option value="">Select City</option>
-      <option>Chennai</option>
-      <option>Coimbatore</option>
-      <option>Madurai</option>
+      <option value="Chennai">Chennai</option>
+      <option value="Coimbatore">Coimbatore</option>
+      <option value="Madurai">Madurai</option>
     </select>
-    <input type="text" name="locality" class="input" placeholder="Locality or landmark">
-  </div>
 
-  <!-- Property Type -->
-  <select name="ptype" class="input">
-    <option value="">Property Type</option>
-    <option value="apartment">Apartment</option>
-    <option value="villa">Villa</option>
-    <option value="plot">Plot</option>
-  </select>
+    <!-- Search Locality -->
+    <input type="text" name="q" id="hpSearch" placeholder="Search upto 3 localities or landmarks">
 
-  <!-- Price Range Slider -->
-  <div class="price-range-brief">
-    <label>Budget</label>
-    <div class="price-slider">
-      <input type="range" id="homeMinPrice" name="minPrice" min="0" max="20000000" step="50000" value="0">
-      <input type="range" id="homeMaxPrice" name="maxPrice" min="0" max="20000000" step="50000" value="20000000">
-      <div class="price-labels">
-        <span id="homeMinLabel">₹0</span> – <span id="homeMaxLabel">₹2 Cr+</span>
+    <!-- Price Slider -->
+    <div class="price-box">
+      <div class="price-range" data-min="0" data-max="20000000" data-step="100000" data-gap="200000">
+        <div class="slider-track">
+          <div class="range-progress"></div>
+        </div>
+        <input type="range" id="hpPriceMinSlider">
+        <input type="range" id="hpPriceMaxSlider">
       </div>
+      <div class="price-values">
+        <span id="hpMinPriceValue">₹0</span>
+        <span>–</span>
+        <span id="hpMaxPriceValue">₹2Cr</span>
+      </div>
+      <input type="hidden" name="minPrice" id="hpMinPrice">
+      <input type="hidden" name="maxPrice" id="hpMaxPrice">
     </div>
-  </div>
 
-  <!-- Search Button -->
-  <button type="submit" class="btn search-btn">Search</button>
-</div>
+    <!-- Search Button -->
+    <button type="submit" class="filter-search-btn">
+      <span>🔍</span> Search
+    </button>
+
+  </form>
+</section>

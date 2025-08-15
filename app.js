@@ -1,19 +1,39 @@
-const minSlide = document.getElementById("homeMinPrice");
-const maxSlide = document.getElementById("homeMaxPrice");
-const minLabel = document.getElementById("homeMinLabel");
-const maxLabel = document.getElementById("homeMaxLabel");
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const minInput = document.getElementById("hpPriceMinSlider");
+  const maxInput = document.getElementById("hpPriceMaxSlider");
+  const minVal = document.getElementById("hpMinPriceValue");
+  const maxVal = document.getElementById("hpMaxPriceValue");
+  const hiddenMin = document.getElementById("hpMinPrice");
+  const hiddenMax = document.getElementById("hpMaxPrice");
 
-function formatINR(val) {
-  if (val >= 10000000) return '₹' + (val/10000000).toFixed(1) + ' Cr';
-  if (val >= 100000) return '₹' + (val/100000).toFixed(0) + ' L';
-  return '₹' + val.toLocaleString();
-}
+  minInput.min = 0;
+  maxInput.min = 0;
+  minInput.max = 20000000;
+  maxInput.max = 20000000;
+  minInput.value = 0;
+  maxInput.value = 20000000;
 
-[minSlide, maxSlide].forEach(slider => {
-  slider.addEventListener("input", () => {
-    minLabel.innerText = formatINR(parseInt(minSlide.value));
-    maxLabel.innerText = formatINR(parseInt(maxSlide.value));
-  });
+  const formatPrice = (value) => {
+    if (value >= 10000000) return "₹" + (value / 10000000) + "Cr";
+    if (value >= 100000) return "₹" + (value / 100000) + "L";
+    return "₹" + value.toLocaleString("en-IN");
+  };
+
+  function updateSlider() {
+    const minValNum = parseInt(minInput.value);
+    const maxValNum = parseInt(maxInput.value);
+    if (minValNum > maxValNum) {
+      [minInput.value, maxInput.value] = [maxValNum, minValNum];
+    }
+    minVal.textContent = formatPrice(minInput.value);
+    maxVal.textContent = formatPrice(maxInput.value);
+    hiddenMin.value = minInput.value;
+    hiddenMax.value = maxInput.value;
+  }
+
+  minInput.addEventListener("input", updateSlider);
+  maxInput.addEventListener("input", updateSlider);
+  updateSlider();
 });
-
-[minSlide, maxSlide].forEach(slider => slider.dispatchEvent(new Event("input")));
+</script>
