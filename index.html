@@ -1,8 +1,23 @@
-<div class="filter-container" style="max-width: 700px; margin: 0 auto;">
+<section class="filter-container compact">
   <div class="top-row">
-    <div class="search-box">
-      <input type="text" class="input" placeholder="Search by city, locality, project, or landmark…">
+    
+    <!-- LEFT: City Dropdown -->
+    <div class="city-box">
+      <label for="city">City</label>
+      <select id="city" class="input">
+        <option value="">Select City</option>
+        <option value="chennai">Chennai</option>
+        <option value="madurai">Madurai</option>
+        <option value="coimbatore">Coimbatore</option>
+      </select>
     </div>
-    <button class="btn" style="min-width: 120px;">Search</button>
+
+    <!-- RIGHT: Search Bar -->
+    <div class="search-box">
+      <label for="q">Search</label>
+      <input id="q" class="input search-large" 
+        placeholder="Search by city, locality, project, landmark…">
+    </div>
+
   </div>
-</div>
+</section>
