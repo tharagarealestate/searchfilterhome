@@ -1,39 +1,45 @@
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  const minInput = document.getElementById("hpPriceMinSlider");
-  const maxInput = document.getElementById("hpPriceMaxSlider");
-  const minVal = document.getElementById("hpMinPriceValue");
-  const maxVal = document.getElementById("hpMaxPriceValue");
-  const hiddenMin = document.getElementById("hpMinPrice");
-  const hiddenMax = document.getElementById("hpMaxPrice");
+  const minSlider = document.getElementById("hpMinSlider");
+  const maxSlider = document.getElementById("hpMaxSlider");
+  const minValue = document.getElementById("hpMinValue");
+  const maxValue = document.getElementById("hpMaxValue");
+  const minHidden = document.getElementById("hpMinPrice");
+  const maxHidden = document.getElementById("hpMaxPrice");
+  const rangeProgress = document.querySelector(".range-progress");
 
-  minInput.min = 0;
-  maxInput.min = 0;
-  minInput.max = 20000000;
-  maxInput.max = 20000000;
-  minInput.value = 0;
-  maxInput.value = 20000000;
+  const sliderMax = 20000000;
+  minSlider.min = 0;
+  minSlider.max = sliderMax;
+  maxSlider.min = 0;
+  maxSlider.max = sliderMax;
+  minSlider.value = 0;
+  maxSlider.value = sliderMax;
 
-  const formatPrice = (value) => {
-    if (value >= 10000000) return "₹" + (value / 10000000) + "Cr";
-    if (value >= 100000) return "₹" + (value / 100000) + "L";
-    return "₹" + value.toLocaleString("en-IN");
+  const formatPrice = (val) => {
+    if (val >= 10000000) return "₹" + (val / 10000000) + "Cr";
+    if (val >= 100000) return "₹" + (val / 100000) + "L";
+    return "₹" + val.toLocaleString("en-IN");
   };
 
   function updateSlider() {
-    const minValNum = parseInt(minInput.value);
-    const maxValNum = parseInt(maxInput.value);
-    if (minValNum > maxValNum) {
-      [minInput.value, maxInput.value] = [maxValNum, minValNum];
-    }
-    minVal.textContent = formatPrice(minInput.value);
-    maxVal.textContent = formatPrice(maxInput.value);
-    hiddenMin.value = minInput.value;
-    hiddenMax.value = maxInput.value;
+    let minVal = parseInt(minSlider.value);
+    let maxVal = parseInt(maxSlider.value);
+    if (minVal > maxVal) [minVal, maxVal] = [maxVal, minVal];
+
+    minValue.textContent = formatPrice(minVal);
+    maxValue.textContent = formatPrice(maxVal);
+    minHidden.value = minVal;
+    maxHidden.value = maxVal;
+
+    const percent1 = (minVal / sliderMax) * 100;
+    const percent2 = (maxVal / sliderMax) * 100;
+    rangeProgress.style.left = percent1 + "%";
+    rangeProgress.style.right = (100 - percent2) + "%";
   }
 
-  minInput.addEventListener("input", updateSlider);
-  maxInput.addEventListener("input", updateSlider);
+  minSlider.addEventListener("input", updateSlider);
+  maxSlider.addEventListener("input", updateSlider);
   updateSlider();
 });
 </script>
