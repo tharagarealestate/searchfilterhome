@@ -9,14 +9,28 @@
       <option value="coimbatore">Coimbatore</option>
     </select>
 
-    <!-- Search Input -->
-    <div class="home-input-wrap">
-      <span class="home-icon">🔍</span>
-      <input id="q" class="input home-input home-seg" placeholder="Search by locality, project, landmark…">
-    </div>
+    <main class="container">
 
-    <!-- Search Button -->
-    <button class="btn home-seg home-seg--right">Search</button>
+    <section class="filter-container compact">
+      <div class="top-row">
+        <div class="home-search-row">
+  
+  <!-- City select -->
+  <select id="city" class="input home-seg home-seg--left">
+    <option value="">Select City</option>
+    <option value="chennai">Chennai</option>
+    <option value="madurai">Madurai</option>
+    <option value="coimbatore">Coimbatore</option>
+  </select>
+  <div class="search-box">
+    <input id="q" class="input search-large" placeholder="Search by city, locality, project, landmark…">
+  </div>
+   <!-- Buttons -->
+      <div class="filter-actions right">
+        <button id="apply" class="btn">Apply</button>
+      </div>
+    </section>
+
 
   </div>
 </section>

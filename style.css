@@ -1,67 +1,128 @@
-/* --- Home search container (Tharaga style) --- */
-.home-search-container {
-  max-width: 900px;
-  margin: 12px auto 8px; /* compact top margin */
+:root{
+  --brand:#6e0d25;      /* Tharaga maroon */
+  --brand-2:#8c1630;
+  --cream:#f7efe7;
+  --ink:#1b1b1b;
+  --muted:#6b7280;
+  --ring:rgba(110,13,37,.25);
+}
+
+*{box-sizing:border-box}
+html,body{
+  margin:0;
+  padding:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif
+}
+
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+.container{max-width:1100px;margin:0 auto;padding:24px}
+
+.details-hero{
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:10px
+}
+.details-thumb{
+  height:120px;
+  object-fit:cover;
+  border-radius:12px
+}
+.spec-row{
+  display:grid;
+  grid-template-columns:180px 1fr;
+  padding:8px 0;
+  border-bottom:1px solid #f1e3e3
+}
+.kpi{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  flex-wrap:wrap
+}
+.kpi .pill{
+  padding:6px 10px;
+  border-radius:999px;
+  background:#fff;
+  border:1px solid #eee
+}
+
+/* === NEW FILTER BOX STYLES === */
+.filter-container {
   background: linear-gradient(180deg, #fff, #fdf9f7);
+  border-radius: 16px; /* 🔄 CHANGE: slightly smaller for sleekness */
+  padding: 16px; /* 🔄 CHANGE: more compact */
   border: 1px solid #f0d9d9;
-  border-radius: 16px;
-  padding: 10px;
-  box-shadow: 0 4px 24px rgba(110, 13, 37, .16); /* ✅ your requested shadow */
-  transition: transform 0.2s ease, box-shadow 0.2s ease; /* ✅ smooth hover */
+  box-shadow: 0 4px 24px rgba(110, 13, 37, 0.16); /* 🔄 CHANGE: softer shadow */
 }
 
-/* ✅ Added hover effect */
-.home-search-container:hover {
+.filter-container:hover {
   transform: translateY(-2px);
-  box-shadow: 0 16px 36px rgba(110, 13, 37, .16);
+  box-shadow: 0 16px 36px rgba(110, 13, 37, 0.16);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* ✅ Added focus-within to highlight when typing */
-.home-search-container:focus-within {
-  box-shadow: 0 0 0 3px var(--ring), 0 16px 36px rgba(110, 13, 37, .16);
+/* New: Top Row for Search + Price */
+.top-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
 }
 
-/* Layout for the row inside the container */
-.home-search-row {
+.top-row .input home-seg home-seg--left,
+.top-row .search-box {
+  flex: 1;
+}
+
+
+.section-heading span {
+  color: var(--muted); /* optional highlight for certain words */
+  font-weight: 500;
+}
+
+.filter-grid {
   display: grid;
-  grid-template-columns: 180px 1fr 118px; /* ✅ city | input | button */
-  align-items: stretch;
-  gap: 0; /* ✅ no gap for a seamless pill look */
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); /* 🔄 CHANGE: slightly narrower columns */
+  gap: 8px 12px; /* smaller gap for tighter look */
+  /*-- align-items: end; */
 }
 
-/* Fuse the three pieces into one pill */
-.home-seg { border-radius: 0; }
-.home-seg--left { border-top-left-radius: 10px; border-bottom-left-radius: 10px; }
-.home-seg--right { border-top-right-radius: 10px; border-bottom-right-radius: 10px; }
-.home-input { border-left: none; } /* ✅ remove inner border between city & input */
-
-/* Search input with icon */
-.home-input-wrap { position: relative; }
-.home-icon {
-  position: absolute;
-  left: 12px;
-  top: 50%;
-  transform: translateY(-50%);
+.filter-grid label {
+  font-weight: 600;
+  font-size: 12px; /* 🔄 CHANGE: smaller label font */
   color: var(--muted);
-  pointer-events: none;
-}
-.home-input { padding-left: 36px; }
-
-/* Button polish */
-.home-search-row .btn {
-  font-weight: 700;
-  letter-spacing: .01em;
-  padding: 0 20px;
+  display: block;
+  margin-bottom: 3px; /* 🔄 CHANGE: tighter spacing */
 }
 
-/* ✅ Added responsive behavior for mobile */
-@media (max-width: 640px) {
-  .home-search-row {
-    grid-template-columns: 1fr;
-    gap: 8px;
-  }
-  .home-input { border-left: 1px solid #e5e7eb; }
-  .home-seg,
-  .home-seg--left,
-  .home-seg--right { border-radius: 10px; }
+.filter-actions {
+  display: flex;
+  justify-content: space-between; /* 🔄 CHANGE: buttons spread apart for balance */
+  gap: 8px;
+  margin-top: 8px;
 }
+
+
+select[multiple] {
+  min-height: 90px; /* 🔄 CHANGE: shorter multiple-select height */
+}
+
+/* === NEW: subtle hover for selects and inputs === */
+.input:hover, select:hover, textarea:hover {
+  border-color: var(--brand);
+  background: #fffafa;
+  box-shadow: 0 2px 6px rgba(110, 13, 37, 0.06); /* New subtle hover shadow */
+}
+
+/* === NEW: active filter chips === */
+.active-filter-chip {
+  background: var(--brand);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
