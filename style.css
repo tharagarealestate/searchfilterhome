@@ -72,7 +72,7 @@ img{max-width:100%;display:block}
   margin-bottom: 12px;
 }
 
-.top-row .input home-seg home-seg--left,
+.top-row .input home-search-row,
 .top-row .search-box {
   flex: 1;
 }
