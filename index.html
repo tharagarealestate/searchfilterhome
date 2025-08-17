@@ -134,13 +134,31 @@
     .home-input{ padding-left:36px }
 
     @media (max-width:640px){
-      .display: grid;   
-      .home-search-row{ grid-template-columns:1fr 1fr; gap:8px }
-      .home-input{ border-left:1px solid #e5e7eb; border-right:1px solid #e5e7eb }
-      .home-seg,
-      .home-seg--left,
-      .home-seg--right{ border-radius:10px }
+    .home-search-row {
+      display: grid;
+      grid-template-columns: 30% 70%; /* City 30%, Search 70% */
+      gap: 8px;
     }
+
+    /* Make the button drop to next row and center */
+    #homeSearchBtn {
+      grid-column: 1 / -1;    /* span full width row */
+      justify-self: center;   /* center horizontally */
+      width: auto;            /* shrink to its content */
+      margin-top: 8px;
+    }
+
+    /* Reset borders since inputs are stacked differently */
+    .home-input {
+      border-left: 1px solid #e5e7eb;
+      border-right: 1px solid #e5e7eb;
+    }
+    .home-seg,
+    .home-seg--left,
+    .home-seg--right {
+      border-radius: 10px;
+    }
+  }
   </style>
 </head>
 <body>
