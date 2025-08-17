@@ -133,32 +133,44 @@
     }
     .home-input{ padding-left:36px }
 
+    /* 🔴 Mobile specific changes */
     @media (max-width:640px){
-    .home-search-row {
-      display: grid;
-      grid-template-columns: 30% 70%; /* City 30%, Search 70% */
-      gap: 8px;
+      .home-search-row {
+        display: grid;
+        grid-template-columns: 30% 70%; /* City 30%, Search 70% */
+        gap: 8px;
+      }
+
+      /* Make the button drop to next row and center */
+      #homeSearchBtn {
+        grid-column: 1 / -1;    /* span full width row */
+        justify-self: center;   /* center horizontally */
+        width: auto;            /* shrink to its content */
+        margin-top: 8px;
+      }
+
+      /* Reset borders since inputs are stacked differently */
+      .home-input {
+        border-left: 1px solid #e5e7eb;
+        border-right: 1px solid #e5e7eb;
+      }
+      .home-seg,
+      .home-seg--left,
+      .home-seg--right {
+        border-radius: 10px;
+      }
+
+      /* 🔴 Mobile iframe height fix */
+      #tharaga-embed {
+        height: min(360px, 70vh);
+      }
     }
 
-    /* Make the button drop to next row and center */
-    #homeSearchBtn {
-      grid-column: 1 / -1;    /* span full width row */
-      justify-self: center;   /* center horizontally */
-      width: auto;            /* shrink to its content */
-      margin-top: 8px;
+    @media (max-width:390px){
+      #tharaga-embed {
+        height: min(380px, 75vh);
+      }
     }
-
-    /* Reset borders since inputs are stacked differently */
-    .home-input {
-      border-left: 1px solid #e5e7eb;
-      border-right: 1px solid #e5e7eb;
-    }
-    .home-seg,
-    .home-seg--left,
-    .home-seg--right {
-      border-radius: 10px;
-    }
-  }
   </style>
 </head>
 <body>
@@ -195,6 +207,12 @@
       </div>
     </section>
   </main>
+
+  <!-- 🔴 Added iframe here -->
+  <iframe id="tharaga-embed"
+          src="https://jocular-lamington-dc8508.netlify.app/"
+          width="100%" height="160"
+          style="border:none;"></iframe>
 
   <script>
     (function(){
