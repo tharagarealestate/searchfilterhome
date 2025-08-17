@@ -265,7 +265,7 @@
         if (q)    params.set('q', q);
 
         const sep = LISTINGS_URL.includes('?') ? '&' : '?';
-        window.location.href = LISTINGS_URL + (params.toString() ? (sep + params.toString()) : "");
+        window.open(LISTINGS_URL + (params.toString() ? (sep + params.toString()) : ""), "_blank");
       }
 
       btnEl.addEventListener('click', go);
